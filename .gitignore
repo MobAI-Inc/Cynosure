@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+/reports/
+*.tgz
+config/*.local.json
+
+# Local experience, credentials and generated validation results.
+.cynosure/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

@@ -1,0 +1,79 @@
+{
+  "router": {
+    "baseUrl": "https://ai.mob-ai.cn/api/v1",
+    "apiKeyEnv": "MOB_AI_API_KEY"
+  },
+  "jev": {
+    "id": "typesafe/jev-1.13",
+    "revision": "jev-1.13-20260917",
+    "maxInputBytes": 160000,
+    "reserveMicroUsd": 10000
+  },
+  "embedding": {
+    "id": "jina-embeddings-v5-text-small",
+    "revision": "router-catalog-20260919",
+    "maxInputBytes": 16000,
+    "reserveMicroUsd": 1000
+  },
+  "routes": [
+    {
+      "id": "grok-4.6",
+      "revision": "router-catalog-20260919",
+      "maxInputBytes": 64000,
+      "reserveMicroUsd": 2000000,
+      "pricing": {
+        "input": 2000000,
+        "output": 6000000,
+        "source": "OpenRouter xAI Grok 4.6 pricing 2026-08-28"
+      }
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "revision": "router-catalog-20260919",
+      "maxInputBytes": 64000,
+      "reserveMicroUsd": 200000,
+      "pricing": {
+        "input": 140000,
+        "output": 280000,
+        "source": "DeepSeek API pricing 2026-06-15"
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "revision": "router-catalog-20260919",
+      "maxInputBytes": 64000,
+      "reserveMicroUsd": 1500000,
+      "pricing": {
+        "input": 1400000,
+        "output": 4400000,
+        "source": "OpenRouter GLM 5.3 pricing 2026-08-28"
+      },
+      "outputTokenLimit": 131072
+    },
+    {
+      "id": "glm-5.3-flash",
+      "revision": "router-catalog-20260919",
+      "maxInputBytes": 64000,
+      "reserveMicroUsd": 200000,
+      "pricing": {
+        "input": 150000,
+        "output": 500000,
+        "source": "OpenRouter GLM 5.3 Flash pricing 2026-08-28"
+      },
+      "outputTokenLimit": 131072
+    }
+  ],
+  "limits": {
+    "timeoutMs": 3600000,
+    "maxDecisionCalls": 4,
+    "maxParallel": 2,
+    "maxResponseBytes": 100000000,
+    "maxEvidenceBytes": 48000
+  },
+  "memory": {
+    "topK": 4,
+    "maxAgeDays": 30
+  },
+  "auditRate": 0,
+  "fallbackModel": "grok-4.6"
+}

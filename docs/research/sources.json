@@ -1,0 +1,324 @@
+{
+  "checked_on": "2026-09-19",
+  "scope": "11 repositories; selected source and documentation review, without installing or executing upstream systems",
+  "files": [
+    {
+      "repo": "lm-sys/RouteLLM",
+      "revision": "0b64fdafe049e596a3f5657c219329f24af24198",
+      "path": "README.md",
+      "url": "https://github.com/lm-sys/RouteLLM/blob/0b64fdafe049e596a3f5657c219329f24af24198/README.md",
+      "sha256": "380ebee5361b8a191d92091639bc2be08e258dd2b4404f804a680f343fa16f0c"
+    },
+    {
+      "repo": "lm-sys/RouteLLM",
+      "revision": "0b64fdafe049e596a3f5657c219329f24af24198",
+      "path": "routellm/routers/routers.py",
+      "url": "https://github.com/lm-sys/RouteLLM/blob/0b64fdafe049e596a3f5657c219329f24af24198/routellm/routers/routers.py",
+      "sha256": "2393da77f9049970f57dd6d8eada3cc68e99506b2a547e7662e7d2d56b5065b8"
+    },
+    {
+      "repo": "vllm-project/semantic-router",
+      "revision": "0f8bd239a169f4c83d1decf42dd47b01a7f22fb7",
+      "path": "README.md",
+      "url": "https://github.com/vllm-project/semantic-router/blob/0f8bd239a169f4c83d1decf42dd47b01a7f22fb7/README.md",
+      "sha256": "2c884ec0e69410e5bb984ba1b4dbfffb03c274ab11cf94d82424797fc7ba5527"
+    },
+    {
+      "repo": "vllm-project/semantic-router",
+      "revision": "0f8bd239a169f4c83d1decf42dd47b01a7f22fb7",
+      "path": "src/semantic-router/pkg/looper/looper.go",
+      "url": "https://github.com/vllm-project/semantic-router/blob/0f8bd239a169f4c83d1decf42dd47b01a7f22fb7/src/semantic-router/pkg/looper/looper.go",
+      "sha256": "fafe73884cd0ac4c12f8a23a19fd455eb242649aaf402867167f29947f3067db"
+    },
+    {
+      "repo": "vllm-project/semantic-router",
+      "revision": "0f8bd239a169f4c83d1decf42dd47b01a7f22fb7",
+      "path": "src/semantic-router/pkg/looper/ratings.go",
+      "url": "https://github.com/vllm-project/semantic-router/blob/0f8bd239a169f4c83d1decf42dd47b01a7f22fb7/src/semantic-router/pkg/looper/ratings.go",
+      "sha256": "a41628138ae508a2fa1676666e8a769fadba897b495f020694b042d4a67e0718"
+    },
+    {
+      "repo": "katanemo/plano",
+      "revision": "003c36aea896ce6fa98567329588baa582e41f9c",
+      "path": "README.md",
+      "url": "https://github.com/katanemo/plano/blob/003c36aea896ce6fa98567329588baa582e41f9c/README.md",
+      "sha256": "67f57fe24a0e609a566909c7577819ea74ef94df9634beebdad9e084b27a0291"
+    },
+    {
+      "repo": "aurelio-labs/semantic-router",
+      "revision": "6a8b7a0cd40613dee2e240f3e00d3e11430ffaa9",
+      "path": "README.md",
+      "url": "https://github.com/aurelio-labs/semantic-router/blob/6a8b7a0cd40613dee2e240f3e00d3e11430ffaa9/README.md",
+      "sha256": "fe6f45d7e84bf0aa76b800e6e71aa98b50c422b007754666b191137444f16af7"
+    },
+    {
+      "repo": "aurelio-labs/semantic-router",
+      "revision": "6a8b7a0cd40613dee2e240f3e00d3e11430ffaa9",
+      "path": "semantic_router/routers/semantic.py",
+      "url": "https://github.com/aurelio-labs/semantic-router/blob/6a8b7a0cd40613dee2e240f3e00d3e11430ffaa9/semantic_router/routers/semantic.py",
+      "sha256": "cede3df372dc9af78d4bdb1f046d416637a936f6f57fd80b65cda48b17413313"
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "revision": "b8d837b2ef04da6953a93d136c69eb3980bcb34d",
+      "path": "README.md",
+      "url": "https://github.com/BerriAI/litellm/blob/b8d837b2ef04da6953a93d136c69eb3980bcb34d/README.md",
+      "sha256": "b61fe93d8a03eaec6deea06c9e7c56d4effea451ab927a0da5d16aec28824b0a"
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "revision": "b8d837b2ef04da6953a93d136c69eb3980bcb34d",
+      "path": "LICENSE",
+      "url": "https://github.com/BerriAI/litellm/blob/b8d837b2ef04da6953a93d136c69eb3980bcb34d/LICENSE",
+      "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273"
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "revision": "32b79fd98a4cb86d633069412f528ad5c8142bbc",
+      "path": "README.md",
+      "url": "https://github.com/promptfoo/promptfoo/blob/32b79fd98a4cb86d633069412f528ad5c8142bbc/README.md",
+      "sha256": "426270e1b7c45d0bf456b1284cdc1af055218db73869864b9590b1e0bdaab5cb"
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "revision": "32b79fd98a4cb86d633069412f528ad5c8142bbc",
+      "path": "site/docs/configuration/expected-outputs/model-graded/select-best.md",
+      "url": "https://github.com/promptfoo/promptfoo/blob/32b79fd98a4cb86d633069412f528ad5c8142bbc/site/docs/configuration/expected-outputs/model-graded/select-best.md",
+      "sha256": "576be2f943d2b36bdf5fbfdfd8b57aa40279ce43ea01c2b51a6e47d2a1a06626"
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "revision": "32b79fd98a4cb86d633069412f528ad5c8142bbc",
+      "path": "examples/provider-custom/typescript/customProvider.ts",
+      "url": "https://github.com/promptfoo/promptfoo/blob/32b79fd98a4cb86d633069412f528ad5c8142bbc/examples/provider-custom/typescript/customProvider.ts",
+      "sha256": "cb64c8aa7bc4689c0a20bd14f3af4bf9beaeb9fe3e75ab4775f29355128ab544"
+    },
+    {
+      "repo": "Aider-AI/aider",
+      "revision": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "path": "README.md",
+      "url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md",
+      "sha256": "e40e05367ceacf7138a2605484bf7d1cb5a262d2dba03f52a5327c023b3cd0dc"
+    },
+    {
+      "repo": "Aider-AI/aider",
+      "revision": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "path": "benchmark/README.md",
+      "url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark/README.md",
+      "sha256": "c87a9cd84c1d55a0d5e3d3b7d61e65d83c0dd6f66fe12310bfd37c5994d22074"
+    },
+    {
+      "repo": "Aider-AI/aider",
+      "revision": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "path": "aider/website/docs/leaderboards/index.md",
+      "url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/website/docs/leaderboards/index.md",
+      "sha256": "2e12c12afa07c1bf5212d5824411d8f74bce4c32783dc53fbf256da9580dfc30"
+    },
+    {
+      "repo": "gepa-ai/gepa",
+      "revision": "15ee314f9c7d34ec153b809d401f42f55c4dcd76",
+      "path": "README.md",
+      "url": "https://github.com/gepa-ai/gepa/blob/15ee314f9c7d34ec153b809d401f42f55c4dcd76/README.md",
+      "sha256": "10d7f30035b21bb38fde51fb3ccc0fc64d5e8b64ab51c09731606132782a57b2"
+    },
+    {
+      "repo": "gepa-ai/gepa",
+      "revision": "15ee314f9c7d34ec153b809d401f42f55c4dcd76",
+      "path": "src/gepa/core/adapter.py",
+      "url": "https://github.com/gepa-ai/gepa/blob/15ee314f9c7d34ec153b809d401f42f55c4dcd76/src/gepa/core/adapter.py",
+      "sha256": "c32c4c2ea8ed9fc4f2c65e8d28184e3f63e10e39546a865e556d351f547d88b5"
+    },
+    {
+      "repo": "gepa-ai/gepa",
+      "revision": "15ee314f9c7d34ec153b809d401f42f55c4dcd76",
+      "path": "src/gepa/strategies/acceptance.py",
+      "url": "https://github.com/gepa-ai/gepa/blob/15ee314f9c7d34ec153b809d401f42f55c4dcd76/src/gepa/strategies/acceptance.py",
+      "sha256": "a6234c188fdeab0f7181dd1f01d767fc91779512773ed4ad952df68855c1d3a4"
+    },
+    {
+      "repo": "getzep/graphiti",
+      "revision": "4a6cd47dc4e5754e4f8d430a081c542bfe847296",
+      "path": "README.md",
+      "url": "https://github.com/getzep/graphiti/blob/4a6cd47dc4e5754e4f8d430a081c542bfe847296/README.md",
+      "sha256": "ce1628c02b3c6fd5b59e3e48dc61c958f07824033b4d0b989bb8d433932b6b3f"
+    },
+    {
+      "repo": "getzep/graphiti",
+      "revision": "4a6cd47dc4e5754e4f8d430a081c542bfe847296",
+      "path": "graphiti_core/search/search_config_recipes.py",
+      "url": "https://github.com/getzep/graphiti/blob/4a6cd47dc4e5754e4f8d430a081c542bfe847296/graphiti_core/search/search_config_recipes.py",
+      "sha256": "e06aae4698478499695d084064ec926270b30566284f0c65263e3879339abd94"
+    },
+    {
+      "repo": "getzep/graphiti",
+      "revision": "4a6cd47dc4e5754e4f8d430a081c542bfe847296",
+      "path": "graphiti_core/edges.py",
+      "url": "https://github.com/getzep/graphiti/blob/4a6cd47dc4e5754e4f8d430a081c542bfe847296/graphiti_core/edges.py",
+      "sha256": "0151d72ebfb057033c6d52a163e22f252f67b915722e14315b685c7831b3b1c6"
+    },
+    {
+      "repo": "asg017/sqlite-vec",
+      "revision": "04d28bd21773981e2d266bbf6aa4efbd011eb4f6",
+      "path": "README.md",
+      "url": "https://github.com/asg017/sqlite-vec/blob/04d28bd21773981e2d266bbf6aa4efbd011eb4f6/README.md",
+      "sha256": "9116ef6e0b78eb0caf5c6bb6419ccf4f8c6523967eef2045928c33dc66053d64"
+    },
+    {
+      "repo": "VowpalWabbit/vowpal_wabbit",
+      "revision": "63317862be157d30615236eb3154f55f1dfaf1d5",
+      "path": "README.md",
+      "url": "https://github.com/VowpalWabbit/vowpal_wabbit/blob/63317862be157d30615236eb3154f55f1dfaf1d5/README.md",
+      "sha256": "e5f3d25f33d87137756f3d0d34edf9443888005304a1d1c4369334ef318dbce5"
+    },
+    {
+      "repo": "VowpalWabbit/vowpal_wabbit",
+      "revision": "63317862be157d30615236eb3154f55f1dfaf1d5",
+      "path": "python/docs/source/tutorials/off_policy_evaluation.md",
+      "url": "https://github.com/VowpalWabbit/vowpal_wabbit/blob/63317862be157d30615236eb3154f55f1dfaf1d5/python/docs/source/tutorials/off_policy_evaluation.md",
+      "sha256": "c5930a1b99f670a8e905415362c56fee52637ef0466f9ecc471b63b155361f95"
+    },
+    {
+      "repo": "VowpalWabbit/vowpal_wabbit",
+      "revision": "63317862be157d30615236eb3154f55f1dfaf1d5",
+      "path": "LICENSE",
+      "url": "https://github.com/VowpalWabbit/vowpal_wabbit/blob/63317862be157d30615236eb3154f55f1dfaf1d5/LICENSE",
+      "sha256": "eac596b59b857ae64e91283840b4d278c8a6fca296cc8055f0ca82d0269272c9"
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "revision": "b8d837b2ef04da6953a93d136c69eb3980bcb34d",
+      "path": "litellm/router.py",
+      "url": "https://github.com/BerriAI/litellm/blob/b8d837b2ef04da6953a93d136c69eb3980bcb34d/litellm/router.py",
+      "sha256": "cc99b1a69299f67aada262299d1619208c92a38263d64b02cb6586fa55bb563f"
+    }
+  ],
+  "official_references": [
+    {
+      "name": "Jev System One",
+      "url": "https://docs.typesafe.ai/concepts/how-to-build-with-system-one",
+      "checked_on": "2026-09-19"
+    },
+    {
+      "name": "Jev Choice",
+      "url": "https://docs.typesafe.ai/primitives/choice",
+      "checked_on": "2026-09-19"
+    },
+    {
+      "name": "SQLite transactions",
+      "url": "https://www.sqlite.org/lang_transaction.html",
+      "checked_on": "2026-09-19"
+    },
+    {
+      "name": "SQLite FTS5",
+      "url": "https://sqlite.org/fts5.html",
+      "checked_on": "2026-09-19"
+    }
+  ],
+  "scholarly_references": [
+    {
+      "id": "routellm",
+      "title": "RouteLLM: Learning to Route LLMs with Preference Data",
+      "authors": [
+        "Ong, Isaac",
+        "Almahairi, Amjad",
+        "Wu, Vincent",
+        "Chiang, Wei-Lin",
+        "Wu, Tianhao",
+        "Gonzalez, Joseph E.",
+        "Kadous, M Waleed",
+        "Stoica, Ion"
+      ],
+      "year": 2024,
+      "publication": "arXiv:2406.18665",
+      "arxiv_id": "2406.18665",
+      "url": "https://arxiv.org/abs/2406.18665",
+      "checked_on": "2026-09-19",
+      "design_relevance": "Query-dependent model routing and quality-cost trade-offs; research context."
+    },
+    {
+      "id": "frugalgpt",
+      "title": "FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance",
+      "authors": ["Chen, Lingjiao", "Zaharia, Matei", "Zou, James"],
+      "year": 2023,
+      "publication": "arXiv:2305.05176",
+      "arxiv_id": "2305.05176",
+      "url": "https://arxiv.org/abs/2305.05176",
+      "checked_on": "2026-09-19",
+      "design_relevance": "LLM combinations and cascades; research context for adaptive execution paths."
+    },
+    {
+      "id": "rrf",
+      "title": "Reciprocal rank fusion outperforms condorcet and individual rank learning methods",
+      "authors": ["Gordon V. Cormack", "Charles L A Clarke", "Stefan Buettcher"],
+      "year": 2009,
+      "publication": "SIGIR 2009",
+      "doi": "10.1145/1571941.1572114",
+      "url": "https://doi.org/10.1145/1571941.1572114",
+      "full_text_url": "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf",
+      "full_text_sha256": "5c1f9f1fe0d80f67d82041bbe151ea17437bc7a7d9a920564cf122d1b09eafb5",
+      "metadata_url": "https://api.crossref.org/works/10.1145/1571941.1572114",
+      "checked_on": "2026-09-19",
+      "design_relevance": "Rank fusion algorithm directly implemented with k=60 for vector and lexical retrieval."
+    },
+    {
+      "id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "authors": [
+        "Lewis, Patrick",
+        "Perez, Ethan",
+        "Piktus, Aleksandra",
+        "Petroni, Fabio",
+        "Karpukhin, Vladimir",
+        "Goyal, Naman",
+        "Küttler, Heinrich",
+        "Lewis, Mike",
+        "Yih, Wen-tau",
+        "Rocktäschel, Tim",
+        "Riedel, Sebastian",
+        "Kiela, Douwe"
+      ],
+      "year": 2020,
+      "publication": "NeurIPS 2020",
+      "arxiv_id": "2005.11401",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "checked_on": "2026-09-19",
+      "design_relevance": "External non-parametric memory as inference context; design reference for retrieving task experience."
+    },
+    {
+      "id": "react",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": [
+        "Yao, Shunyu",
+        "Zhao, Jeffrey",
+        "Yu, Dian",
+        "Du, Nan",
+        "Shafran, Izhak",
+        "Narasimhan, Karthik",
+        "Cao, Yuan"
+      ],
+      "year": 2022,
+      "publication": "arXiv:2210.03629",
+      "arxiv_id": "2210.03629",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "checked_on": "2026-09-19",
+      "design_relevance": "Interleaved action and observation; design reference for host execution feedback."
+    },
+    {
+      "id": "reflexion",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "authors": [
+        "Noah Shinn",
+        "Federico Cassano",
+        "Ashwin Gopinath",
+        "Karthik Narasimhan",
+        "Shunyu Yao"
+      ],
+      "year": 2023,
+      "publication": "NeurIPS 2023",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/1b44b878bb782e6954cd888628510e90-Abstract-Conference.html",
+      "arxiv_id": "2303.11366",
+      "checked_on": "2026-09-19",
+      "design_relevance": "Linguistic feedback and episodic memory; research context for preserving feedback across trials."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "coding-cold-001",
+  "scope": "local-validation",
+  "prompt": "修复这个 JavaScript 去重函数：它目前把所有对象当作同一个值。要求按 item.id 去重，保留第一次出现的对象和原有顺序，不修改输入数组，返回完整函数。\nfunction uniqueById(items) { return [...new Set(items.map(String))]; }",
+  "goal": "满足指定接口和行为，给出完整可用代码；满足要求后比较费用与耗时。",
+  "budgetMicroUsd": 10000000,
+  "mode": "adaptive"
+}

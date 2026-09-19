@@ -1,0 +1,40 @@
+{
+  "learning": [
+    "affine-cipher",
+    "beer-song",
+    "bottle-song",
+    "food-chain",
+    "grade-school",
+    "list-ops",
+    "pig-latin",
+    "proverb",
+    "scale-generator",
+    "transpose"
+  ],
+  "heldout": [
+    "book-store",
+    "bowling",
+    "connect",
+    "dominoes",
+    "dot-dsl",
+    "forth",
+    "go-counting",
+    "grep",
+    "hangman",
+    "paasio",
+    "phone-number",
+    "poker",
+    "pov",
+    "react",
+    "rest-api",
+    "robot-name",
+    "sgf-parsing",
+    "simple-linked-list",
+    "tree-building",
+    "two-bucket",
+    "variable-length-quantity",
+    "wordy",
+    "zebra-puzzle",
+    "zipper"
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "reviewed_on": "2026-09-19",
+  "implementation_version": "0.2.0",
+  "stage": "local-small-sample-validation; production-unvalidated",
+  "sources": {
+    "coding": {
+      "path": ".cynosure/aider-polyglot-20260919-v4/analysis.json",
+      "sha256": "a5730c49655297bfa0d4ad8b064f8fe84059407972594e1ae62073152f911758",
+      "recorded_at": "2026-09-19T09:48:05.176Z"
+    },
+    "pi": {
+      "path": ".cynosure/pi-coding-20260919-v2/analysis.json",
+      "sha256": "69f7b848feb3262299b7b5b2a17bdc9d8ea7c1aa57479c73b0b6d53f1adaf779",
+      "recorded_at": "2026-09-19T10:23:00.188Z"
+    }
+  },
+  "coding": {
+    "unique_heldout_scenarios": 24,
+    "repeats_per_scenario": 2,
+    "arms": {
+      "grok-4.6": {
+        "n": 48,
+        "finalPass": 22,
+        "firstPass": 18,
+        "trialsWithExecutableCode": 23,
+        "successfulMedianMs": 92299,
+        "p95Ms": 354841,
+        "generationCalls": 53,
+        "decisionCalls": 0,
+        "embeddingCalls": 0,
+        "reportedUsd": 0.942852,
+        "estimatedUsd": 0.02993,
+        "unknownCalls": 25
+      },
+      "deepseek-v4-flash": {
+        "n": 48,
+        "finalPass": 31,
+        "firstPass": 17,
+        "trialsWithExecutableCode": 40,
+        "successfulMedianMs": 63381,
+        "p95Ms": 252284,
+        "generationCalls": 71,
+        "decisionCalls": 0,
+        "embeddingCalls": 0,
+        "reportedUsd": 0,
+        "estimatedUsd": 0.310272,
+        "unknownCalls": 10
+      },
+      "glm-5.3": {
+        "n": 48,
+        "finalPass": 31,
+        "firstPass": 20,
+        "trialsWithExecutableCode": 39,
+        "successfulMedianMs": 69833,
+        "p95Ms": 575264,
+        "generationCalls": 67,
+        "decisionCalls": 0,
+        "embeddingCalls": 0,
+        "reportedUsd": 0,
+        "estimatedUsd": 1.90231,
+        "unknownCalls": 11
+      },
+      "glm-5.3-flash": {
+        "n": 48,
+        "finalPass": 34,
+        "firstPass": 18,
+        "trialsWithExecutableCode": 43,
+        "successfulMedianMs": 22367,
+        "p95Ms": 716281,
+        "generationCalls": 73,
+        "decisionCalls": 0,
+        "embeddingCalls": 0,
+        "reportedUsd": 0,
+        "estimatedUsd": 0.142942,
+        "unknownCalls": 7
+      },
+      "cynosure": {
+        "n": 48,
+        "finalPass": 41,
+        "firstPass": 31,
+        "trialsWithExecutableCode": 46,
+        "successfulMedianMs": 77701,
+        "p95Ms": 504116,
+        "generationCalls": 142,
+        "decisionCalls": 159,
+        "embeddingCalls": 63,
+        "reportedUsd": 0.560325,
+        "estimatedUsd": 0.80661,
+        "unknownCalls": 102
+      }
+    },
+    "paired_scenario_bootstrap": {
+      "grok-4.6": {
+        "completeScenarios": 24,
+        "successRateDifference": 0.3958333333333333,
+        "scenarioBootstrap95": [0.3125, 0.4791666666666667]
+      },
+      "deepseek-v4-flash": {
+        "completeScenarios": 24,
+        "successRateDifference": 0.20833333333333334,
+        "scenarioBootstrap95": [0.10416666666666667, 0.3333333333333333]
+      },
+      "glm-5.3": {
+        "completeScenarios": 24,
+        "successRateDifference": 0.20833333333333334,
+        "scenarioBootstrap95": [0.10416666666666667, 0.3333333333333333]
+      },
+      "glm-5.3-flash": {
+        "completeScenarios": 24,
+        "successRateDifference": 0.14583333333333334,
+        "scenarioBootstrap95": [0, 0.3125]
+      }
+    }
+  },
+  "pi": {
+    "unique_defects": 4,
+    "formal_trajectories": 24,
+    "groups": [
+      {
+        "model": "auto",
+        "completed": 8,
+        "checksPassed": 8,
+        "completeDelivery": 7,
+        "generations": 127,
+        "decisionCalls": 229,
+        "estimateMicroUsd": 788783,
+        "unpricedCalls": 25
+      },
+      {
+        "model": "grok-4.6",
+        "completed": 4,
+        "checksPassed": 0,
+        "completeDelivery": 0,
+        "generations": 4,
+        "decisionCalls": 0,
+        "estimateMicroUsd": 0,
+        "unpricedCalls": 4
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "completed": 4,
+        "checksPassed": 0,
+        "completeDelivery": 0,
+        "generations": 19,
+        "decisionCalls": 0,
+        "estimateMicroUsd": 39749,
+        "unpricedCalls": 4
+      },
+      {
+        "model": "glm-5.3",
+        "completed": 4,
+        "checksPassed": 3,
+        "completeDelivery": 2,
+        "generations": 21,
+        "decisionCalls": 0,
+        "estimateMicroUsd": 401762,
+        "unpricedCalls": 2
+      },
+      {
+        "model": "glm-5.3-flash",
+        "completed": 4,
+        "checksPassed": 2,
+        "completeDelivery": 0,
+        "generations": 15,
+        "decisionCalls": 0,
+        "estimateMicroUsd": 11308,
+        "unpricedCalls": 4
+      }
+    ],
+    "phases": {
+      "cold": {
+        "elapsedMs": 1351244,
+        "generations": 72,
+        "toolCalls": 64,
+        "pricebookEstimateMicroUsd": 453645,
+        "unpricedCalls": 18,
+        "trajectories": 4,
+        "checksPassed": 4,
+        "completeDelivery": 3
+      },
+      "repeat": {
+        "elapsedMs": 733948,
+        "generations": 55,
+        "toolCalls": 62,
+        "pricebookEstimateMicroUsd": 335138,
+        "unpricedCalls": 7,
+        "trajectories": 4,
+        "checksPassed": 4,
+        "completeDelivery": 4
+      }
+    }
+  },
+  "limitations": [
+    "Unequal generation calls and retry opportunities across arms",
+    "Unknown bills are not zero cost",
+    "Pi runtime compatibility changed during the experiment",
+    "Pi repeat tasks reuse the same defects; no no-feedback ablation",
+    "Excluded contaminated and interrupted trajectories remain quarantined",
+    "No production traffic validation"
+  ]
+}

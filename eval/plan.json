@@ -1,0 +1,50 @@
+{
+  "version": "aider-polyglot-coding-v4-capabilities-fallback",
+  "framework": {
+    "package": "promptfoo",
+    "version": "0.123.1",
+    "method": "Aider Polyglot benchmark: full-file edits, official pytest suites, up to two attempts",
+    "aiderSourceCommit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+    "metrics": [
+      "first attempt pass rate",
+      "pass rate after one repair",
+      "reported and estimated cost",
+      "end-to-end latency",
+      "test runs",
+      "generation attempts",
+      "Jev calls",
+      "failed routes"
+    ]
+  },
+  "seed": "cynosure-coding-20260919-v1",
+  "maxConcurrency": 8,
+  "goal": "Implement the requested code edit correctly. Respect the supplied API and constraints. Use observed test results as evidence. Prefer lower cost only among approaches that meet the task requirements.",
+  "taskBudgetMicroUsd": 10000000,
+  "sources": {
+    "polyglot": {
+      "repo": "Aider-AI/polyglot-benchmark",
+      "commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+    }
+  },
+  "allowedModels": [
+    "jina-embeddings-v5-text-small",
+    "typesafe/jev-1.13",
+    "grok-4.6",
+    "deepseek-v4-flash",
+    "glm-5.3",
+    "glm-5.3-flash"
+  ],
+  "notes": [
+    "34 official coding exercises: 10 disjoint learning cases and 24 held-out scenarios.",
+    "Use upstream instructions, solution skeleton and tests without authored cases.",
+    "Aider two-attempt test-and-repair method; transport through Cynosure is an adaptation, not the unmodified Aider leaderboard harness.",
+    "Never expose reference implementation or test source to model; test error output is allowed only after execution.",
+    "Each heldout Cynosure task uses its own copy of a frozen experience snapshot.",
+    "All providers use the same prompts, output limits and official tests.",
+    "OS-sandboxed execution, no network or credentials.",
+    "No model is assigned a prior quality score. Strong-model differences include success, repair, price and latency.",
+    "Generation requests use262144 tokens except documented provider output ceilings: GLM5.3 and Flash131072. Delivery-first Jev; Grok fallback on uncertainty or decision failure. Evaluations remain observations, never delivery gates."
+  ],
+  "repetitions": 2,
+  "maxAttempts": 2
+}
