@@ -1,8 +1,8 @@
 # 运行说明
 
-Cynosure 0.2 的公开入口为 `Cynosure`、`Store`、`parseConfig`、`parseTask` 和类型定义。需要 Node.js 24+、内置 `node:sqlite` 与固定版本的 sqlite-vec 原生扩展；不适用于 Cloudflare Worker 直接导入。
+Cynosure 0.2 的公开入口为 `Cynosure`、`Store`、`parseConfig`、`parseTask` 和类型定义。本地 Store 需要 Node.js 24+、内置 `node:sqlite` 与固定版本的 sqlite-vec 原生扩展。CoreStore 抽取同步数据库接口；线上使用 Cloudflare SQLite 适配器和精确 cosine 检索，无需加载原生扩展。
 
-当前提供文本 CLI 和 Pi 宿主扩展，通过 Router 使用模型服务。本地运行时与 Router 独立部署，生产使用验证待完成。
+当前提供文本 CLI、Pi 宿主扩展，以及已部署到 Router 的 `cynosure/auto` 线上入口。线上按 key 隔离并持久化请求、经验和反馈；部署、迁移与真实请求验证见 [Router 接入](integrations/mob-ai-router.md)。
 
 经验库使用 SQLite `user_version=1`。未知版本拒绝打开，不自动迁移。中断任务保留 `running` 和未结算预留，相同任务 ID 拒绝再次提交；宿主需要先核对实际调用，再决定是否用新 ID 重试。
 
