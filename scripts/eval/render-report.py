@@ -7,7 +7,7 @@ import sys
 root = Path(sys.argv[1]).resolve()
 report = json.loads((root / 'analysis.json').read_text())
 target = Path(sys.argv[2]) if len(sys.argv) > 2 else root / 'report.md'
-labels = {'grok-4.6':'Grok 4.6','deepseek-v4-flash':'DeepSeek V4 Flash','glm-5.3':'GLM 5.3','glm-5.3-flash':'GLM 5.3 Flash','cynosure':'Cynosure'}
+labels = {'grok-4.6':'Grok 4.6','deepseek-v4-flash':'DeepSeek V4.1 Flash','glm-5.3':'GLM 5.3','glm-5.3-flash':'GLM 5.3 Flash','cynosure':'Cynosure'}
 def duration(ms): return '—' if ms is None else f'{ms/1000:.1f}'
 def usd(m): return f"{m['reportedUsd']:.6f} / {m['estimatedUsd']:.6f}"
 completed = report['integrity']['expectedHeldout'] - len(report['integrity']['missingHeldout'])

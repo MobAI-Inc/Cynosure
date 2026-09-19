@@ -21,6 +21,12 @@ Built by **MobAI Inc.**
 
 Cynosure is **Jev-based by design**: an adaptive model router built around Jev's [Native Choice](https://docs.typesafe.ai/primitives/choice) primitive. Jev selects which candidate to invoke, whether to compare more outputs, and which result to deliver, within the executable actions defined by code. Hybrid retrieval and real execution feedback supply evidence to this **Jev decision loop**; the runtime enforces budgets, concurrency, and fallback handling. Start with an empty experience store—no router-model training or hand-maintained model quality matrix required.
 
+## Configurable multi-model routing
+
+Configure the candidate pool through `routes`. Jev selects models using the task and execution feedback, and can try a candidate, compare further outputs, or deliver a result.
+
+This [benchmark configuration](eval/runtime.json) uses **Grok 4.6, DeepSeek V4.1 Flash, GLM 5.3, and GLM 5.3 Flash** as generation candidates and tests each individually as a single-model baseline. `typesafe/jev-1.13` handles routing decisions; `jina-embeddings-v5-text-small` and SQLite full-text search retrieve experience.
+
 ## Local benchmark results
 
 **85.4% test pass rate. +14.6 percentage points over the best single-model baseline. 50% fewer failed trials.**
@@ -33,6 +39,26 @@ Using official tasks and unmodified tests from [Aider Polyglot](https://github.c
 | Python failed trials | Best single model: 14/48 | **7/48** | **50.0% fewer** |
 | Pi total task wall time | Initial run: 1,351.2 s | Repeat: **733.9 s** | **45.7% lower** |
 | Pi generation calls | Initial run: 72 | Repeat: **55** | **23.6% fewer** |
+
+### Single-model comparisons in this benchmark
+
+| Execution strategy | Final passes | Pass rate | Generation calls |
+| --- | ---: | ---: | ---: |
+| **Cynosure** | **41/48** | **85.4%** | 142 |
+| GLM 5.3 Flash alone | 34/48 | 70.8% | 73 |
+| GLM 5.3 alone | 31/48 | 64.6% | 67 |
+| DeepSeek V4.1 Flash alone | 31/48 | 64.6% | 71 |
+| Grok 4.6 alone | 22/48 | 45.8% | 53 |
+
+### Quality, cost and speed
+
+![Cynosure quality, estimated cost and speed](docs/assets/benchmark-tradeoffs.png)
+
+**Cynosure achieves an 85.4% pass rate in this comparison, with an estimated cost of $0.0368 per successful task and a successful-task median of 77.7 seconds.**
+
+![Observed quality–cost Pareto frontier; Cynosure marked with a star](docs/assets/benchmark-frontier.png)
+
+The vertical axis measures task success on this benchmark. The upper-left direction means higher success at lower estimated cost.
 
 **Real defect repair with Pi: 100% target regression pass rate, 8/8 trials.** Both the initial and repeated four-task runs passed 4/4. The repeat run retained prior experience and cut total task wall time nearly in half while maintaining all regression passes. Seven of eight trials also completed the final response, including 4/4 in the repeat run.
 
