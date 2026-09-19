@@ -16,6 +16,12 @@ Jev handles semantic decisions; code handles execution, explicit constraints and
 
 Version changes to decision questions, evaluation criteria and embedding models. Cover failure handling, missing usage, isolation and persistence with deterministic providers. Keep paid model experiments separate from local checks.
 
+## Pull requests
+
+Repository access is not required to contribute. Fork the repository, create a focused branch from the latest `main`, and open a pull request back to `MobAI-Inc/Cynosure`.
+
+Keep each pull request scoped to one change and use the pull request template to describe the problem, behavior change and validation. Run the relevant checks before requesting review; documentation-only changes should at least pass `npm run check:docs`.
+
 ## Documentation
 
 Use the [documentation map](docs/README.md) and update the current page for each topic. The [project introduction](docs/overview.md) explains the product; [experiment results](docs/validation.md) describe measured outcomes and their scope. Keep user documentation focused on capabilities, usage and concrete results. State unvalidated claims briefly and precisely.
