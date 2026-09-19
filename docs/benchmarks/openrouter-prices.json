@@ -1,0 +1,87 @@
+{
+  "checked_on": "2026-09-19",
+  "purpose": "Reference prices for a future uniform repricing of recorded usage; not historical experiment bills or calculated totals.",
+  "currency": "USD",
+  "pricing_unit": "per token",
+  "models": [
+    {
+      "benchmark_id": "grok-4.6",
+      "openrouter_id": "x-ai/grok-4.6",
+      "name": "SpaceXAI: Grok 4.6",
+      "canonical_slug": "x-ai/grok-4.6-20260810",
+      "source": "https://openrouter.ai/api/v1/models",
+      "pricing_usd_per_token": {
+        "prompt": "0.000002",
+        "completion": "0.000006",
+        "input_cache_read": "0.0000005",
+        "overrides": [
+          {
+            "min_prompt_tokens": 200000,
+            "prompt": "0.000004",
+            "completion": "0.000012",
+            "input_cache_read": "0.000001"
+          }
+        ]
+      },
+      "mapping_status": "public_reference"
+    },
+    {
+      "benchmark_id": "deepseek-v4-flash",
+      "openrouter_id": "deepseek/deepseek-v4-flash",
+      "name": "DeepSeek: DeepSeek V4 Flash 0423",
+      "canonical_slug": "deepseek/deepseek-v4-flash-20260423",
+      "source": "https://openrouter.ai/api/v1/models",
+      "pricing_usd_per_token": {
+        "prompt": "0.00000004312",
+        "completion": "0.00000008624",
+        "input_cache_read": "0.000000008624"
+      },
+      "mapping_status": "version_confirmation_required"
+    },
+    {
+      "benchmark_id": "glm-5.3",
+      "openrouter_id": "z-ai/glm-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "source": "https://openrouter.ai/api/v1/models",
+      "pricing_usd_per_token": {
+        "prompt": "0.00000091",
+        "completion": "0.00000286",
+        "input_cache_read": "0.000000169"
+      },
+      "mapping_status": "public_reference"
+    },
+    {
+      "benchmark_id": "glm-5.3-flash",
+      "openrouter_id": "z-ai/glm-5.3-flash",
+      "name": "Z.ai: GLM 5.3 Flash",
+      "canonical_slug": "z-ai/glm-5.3-flash-20260826",
+      "source": "https://openrouter.ai/api/v1/models",
+      "pricing_usd_per_token": {
+        "prompt": "0.00000009",
+        "completion": "0.0000003",
+        "input_cache_read": "0.000000018"
+      },
+      "mapping_status": "public_reference"
+    },
+    {
+      "benchmark_id": "typesafe/jev-1.13",
+      "openrouter_id": "typesafe/jev-1.13",
+      "source": "https://openrouter.ai/typesafe/jev-1.13",
+      "pricing_usd_per_token": {
+        "prompt": "0.000000042",
+        "completion": "0"
+      },
+      "mapping_status": "public_reference",
+      "note": "Price from public model page; model absent from the fetched general models catalog. Native Decisions channel billing has not been established."
+    },
+    {
+      "benchmark_id": "jina-embeddings-v5-text-small",
+      "openrouter_id": null,
+      "source": "https://openrouter.ai/api/v1/embeddings/models",
+      "pricing_usd_per_token": null,
+      "mapping_status": "not_listed",
+      "note": "No matching Jina model in the fetched embedding catalog; leave cost unresolved under the OpenRouter-only convention."
+    }
+  ]
+}

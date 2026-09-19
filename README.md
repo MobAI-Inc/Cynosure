@@ -21,18 +21,45 @@ Built by **MobAI Inc.**
 
 Cynosure is **Jev-based by design**: an adaptive model router built around Jev's [Native Choice](https://docs.typesafe.ai/primitives/choice) primitive. Jev selects which candidate to invoke, whether to compare more outputs, and which result to deliver, within the executable actions defined by code. Hybrid retrieval and real execution feedback supply evidence to this **Jev decision loop**; the runtime enforces budgets, concurrency, and fallback handling. Start with an empty experience store—no router-model training or hand-maintained model quality matrix required.
 
+## Benchmark configuration: Cynosure (Fusion)
+
+**Cynosure (Fusion)** is the multi-model routing configuration evaluated below. Its generation pool contains **Grok 4.6, DeepSeek V4 Flash, GLM 5.3, and GLM 5.3 Flash**—the same four models tested individually as fixed-model baselines. Fusion means routing among these models and selecting a candidate result; it does not mean merging model weights or training a fifth generation model.
+
+| Role | Model(s) in this benchmark |
+| --- | --- |
+| Generation candidates | `grok-4.6`, `deepseek-v4-flash`, `glm-5.3`, `glm-5.3-flash` |
+| Routing decisions | `typesafe/jev-1.13` (Jev Native Choice) |
+| Experience retrieval | `jina-embeddings-v5-text-small` plus SQLite full-text search |
+| Fallback | `grok-4.6`, already part of the candidate pool |
+
+Jev can try one candidate, compare additional candidates, or deliver an existing result. Each request need not call all four. In Pi, selection happens per agent turn, while Pi executes the selected tool proposal. The pool is configurable through `routes`; these results apply to the exact [benchmark configuration](eval/runtime.json).
+
 ## Local benchmark results
 
 **85.4% test pass rate. +14.6 percentage points over the best single-model baseline. 50% fewer failed trials.**
 
-Using official tasks and unmodified tests from [Aider Polyglot](https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f), with the test-and-repair procedure described in [Aider benchmark](https://github.com/Aider-AI/aider/tree/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark), we ran 24 Python tasks twice each. Cynosure passed **41/48** trials versus **34/48** for GLM 5.3 Flash, the best fixed single-model baseline in this run: **7 additional passing trials** and a **20.6% relative improvement** in pass rate.
+Using official tasks and unmodified tests from [Aider Polyglot](https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f), with the test-and-repair procedure described in [Aider benchmark](https://github.com/Aider-AI/aider/tree/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark), we ran 24 Python tasks twice each. Cynosure (Fusion) passed **41/48** trials versus **34/48** for GLM 5.3 Flash, the best fixed single-model baseline in this run: **7 additional passing trials** and a **20.6% relative improvement** in pass rate.
 
-| Metric | Reference | Cynosure | Improvement |
+| Metric | Reference | Cynosure (Fusion) | Improvement |
 | --- | ---: | ---: | ---: |
 | Python final pass rate | Best single model: 70.8% | **85.4%** | **+14.6 pp** |
 | Python failed trials | Best single model: 14/48 | **7/48** | **50.0% fewer** |
 | Pi total task wall time | Initial run: 1,351.2 s | Repeat: **733.9 s** | **45.7% lower** |
 | Pi generation calls | Initial run: 72 | Repeat: **55** | **23.6% fewer** |
+
+### Fusion versus its four constituent models
+
+| Execution strategy | Final passes | Pass rate | Generation calls |
+| --- | ---: | ---: | ---: |
+| **Cynosure (Fusion)** | **41/48** | **85.4%** | 142 |
+| GLM 5.3 Flash alone | 34/48 | 70.8% | 73 |
+| GLM 5.3 alone | 31/48 | 64.6% | 67 |
+| DeepSeek V4 Flash alone | 31/48 | 64.6% | 71 |
+| Grok 4.6 alone | 22/48 | 45.8% | 53 |
+
+The measured advantage is **7 more passing trials than the best constituent model used alone**, with more generation calls. Fusion also made 159 Jev decisions and 63 embedding calls. The Python harness tests each complete candidate and returns the observation to the router before selection; each strategy can repair a failed submission once. This measures the whole routing-and-execution strategy, including channel failures, rather than an equal-budget comparison or model capability in isolation.
+
+**Is Fusion cheaper? The published data does not establish that.** Its recorded cost subtotal is **$1.366935** versus **$0.142942** for GLM 5.3 Flash alone, with **102/364** and **7/73** calls respectively still unpriced. These subtotals mix reported charges and estimates; they are not complete totals or a uniform public-price recalculation. See the [cost comparison and repricing method](docs/benchmarks/costs.md) for all five strategies, pricing sources, and missing data.
 
 **Real defect repair with Pi: 100% target regression pass rate, 8/8 trials.** Both the initial and repeated four-task runs passed 4/4. The repeat run retained prior experience and cut total task wall time nearly in half while maintaining all regression passes. Seven of eight trials also completed the final response, including 4/4 in the repeat run.
 

@@ -4,6 +4,12 @@ Cynosure 采用 **Jev-based Design**，将 Jev 的结构化判断放在模型路
 
 当前版本：0.2.0 · Node.js / TypeScript · Apache-2.0。
 
+## 本次评测使用的 Fusion 方案
+
+文档中的 **Cynosure（Fusion）** 指由 **Grok 4.6、DeepSeek V4 Flash、GLM 5.3、GLM 5.3 Flash** 组成的生成候选池，Jev 负责路由与结果选择，embedding 模型负责经验检索。Fusion 可以按需尝试或比较候选，不要求每轮运行四个模型，也不涉及模型权重融合。四个单模型对照分别使用同一候选池中的一个模型。
+
+候选可通过配置更换；效果数字对应本次固定池。完整[评测方法](validation.md)和[成本对比](benchmarks/costs.md)分别说明质量收益、调用开销与费用覆盖。
+
 ## 更多任务通过，更少重复开销
 
 **参考 Aider 官方基准方法，本地通过率 85.4%，领先本次最佳单模型对照 14.6 个百分点。** 采用 [Aider Polyglot](https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f) 官方题目与未修改的测试，按 [Aider benchmark](https://github.com/Aider-AI/aider/tree/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark) 的测试—修复流程运行 24 道 Python 题、每题两次。Cynosure 通过 41/48 次，最佳固定单模型 GLM 5.3 Flash 通过 34/48 次：通过率相对提升 **20.6%**，未通过次数从 14 次降至 7 次，**减少 50%**。

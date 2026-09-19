@@ -21,18 +21,45 @@ Jev-based Design · Jev 决策 · 代码编排 · 经验驱动
 
 Cynosure 采用 **Jev-based Design**，围绕 Jev 的 [Native Choice](https://docs.typesafe.ai/primitives/choice) 构建自适应模型路由。调用哪个候选、是否追加比较、交付哪个结果，都由 Jev 在代码定义的可执行动作中判断。混合检索和真实执行反馈为 **Jev 决策循环**持续提供证据，运行时负责预算、并发和异常兜底。从空经验库即可运行，无需训练路由模型或维护人工模型质量矩阵。
 
+## 本次评测方案：Cynosure（Fusion）
+
+**Cynosure（Fusion）** 是下方评测使用的多模型路由方案，生成候选池由 **Grok 4.6、DeepSeek V4 Flash、GLM 5.3、GLM 5.3 Flash** 组成。单模型对照组分别单独使用这四个模型。Fusion 表示在这些模型之间路由并选择候选结果，不涉及权重融合，也没有训练第五个生成模型。
+
+| 职责 | 本次评测使用的模型 |
+| --- | --- |
+| 生成候选 | `grok-4.6`、`deepseek-v4-flash`、`glm-5.3`、`glm-5.3-flash` |
+| 路由决策 | `typesafe/jev-1.13`，使用 Jev Native Choice |
+| 经验检索 | `jina-embeddings-v5-text-small` 与 SQLite 全文检索 |
+| 兜底 | `grok-4.6`，已包含在四个候选中 |
+
+Jev 可以先尝试一个候选，再决定追加比较或交付已有结果，每次请求不一定调用全部四个模型。接入 Pi 时，每个 Agent 轮次都可以选择模型，选中的工具提案由 Pi 执行。候选池可通过 `routes` 配置；这里的成绩对应这份固定的[评测配置](eval/runtime.json)。
+
 ## 本地基准实测
 
 **通过率 85.4%，领先最佳单模型对照 14.6 个百分点，失败次数减半。**
 
-采用 [Aider Polyglot](https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f) 官方题目与未修改的测试，参考 [Aider benchmark](https://github.com/Aider-AI/aider/tree/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark) 的测试—修复流程。在 24 道 Python 题、每题两次的本地对照中，Cynosure 通过 **41/48** 次，本次最佳固定单模型 GLM 5.3 Flash 通过 **34/48** 次。同一组任务，多完成 **7 次**，通过率相对提升 **20.6%**。
+采用 [Aider Polyglot](https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f) 官方题目与未修改的测试，参考 [Aider benchmark](https://github.com/Aider-AI/aider/tree/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark) 的测试—修复流程。在 24 道 Python 题、每题两次的本地对照中，Cynosure（Fusion）通过 **41/48** 次，本次最佳固定单模型 GLM 5.3 Flash 通过 **34/48** 次。同一组任务，多完成 **7 次**，通过率相对提升 **20.6%**。
 
-| 指标 | 对照 | Cynosure | 改善 |
+| 指标 | 对照 | Cynosure（Fusion） | 改善 |
 | --- | ---: | ---: | ---: |
 | Python 最终通过率 | 最佳单模型 70.8% | **85.4%** | **+14.6 个百分点** |
 | Python 未通过次数 | 最佳单模型 14/48 | **7/48** | **减少 50.0%** |
 | Pi 四题任务耗时之和 | 首轮 1351.2 秒 | 同题重测 **733.9 秒** | **减少 45.7%** |
 | Pi 四题生成调用 | 首轮 72 次 | 同题重测 **55 次** | **减少 23.6%** |
+
+### Fusion 与其四个组成模型的对比
+
+| 执行方案 | 最终通过 | 通过率 | 生成调用 |
+| --- | ---: | ---: | ---: |
+| **Cynosure（Fusion）** | **41/48** | **85.4%** | 142 |
+| 单独使用 GLM 5.3 Flash | 34/48 | 70.8% | 73 |
+| 单独使用 GLM 5.3 | 31/48 | 64.6% | 67 |
+| 单独使用 DeepSeek V4 Flash | 31/48 | 64.6% | 71 |
+| 单独使用 Grok 4.6 | 22/48 | 45.8% | 53 |
+
+本次测得的优势是：**相比单独使用候选池中表现最好的模型，多通过 7 次任务执行**，同时使用了更多生成调用。Fusion 另有 159 次 Jev 决策和 63 次 embedding 调用。Python 执行器会测试每份完整候选代码，并在选择结果前把观察返回路由；各方案都允许对未通过的交付修复一次。这比较的是包含渠道失败在内的完整路由与执行策略，并非等预算对照或模型能力的单独比较。
+
+**Fusion 综合成本更低吗？现有公开数据还不能证明。** Fusion 已记录费用小计为 **$1.366935**，单独使用 GLM 5.3 Flash 为 **$0.142942**；两组分别仍有 **102/364**、**7/73** 次调用未定价。小计混合了报告费用与估算费用，不是完整总成本，也不是按统一公开价重算的结果。五组费用、价格来源及缺失数据见[成本对比与重算方法](docs/benchmarks/costs.md)。
 
 **Pi 真实缺陷修复：目标回归检查 100% 通过（8/8）。** 首轮与同题重测均为 4/4；重测保持全部通过，同时将任务耗时压缩近一半。八次运行中，七次同时完成结尾交付，重测为 4/4。
 

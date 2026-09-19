@@ -22,6 +22,7 @@ Cynosure 0.2.0 采用 Jev-based Design，为 LLM 应用和 Coding Agent 提供�
 | [运行说明](runtime.md) | 运行平台、数据存储、预算与宿主要求 |
 | [技术基础与开源生态](research/open-source.md) | 相关论文、组件选择与固定版本源码参考 |
 | [基准实测](validation.md) | 85.4% 通过率、单模型对照与 Pi 效率提升 |
+| [成本对比](benchmarks/costs.md) | Fusion 与四个单模型的已记录费用、公开定价与重算方法 |
 | [实验操作](../eval/README.md) | 准备和运行代码任务实验 |
 | [路线图](../ROADMAP.md) | 后续功能与验证方向 |
 
